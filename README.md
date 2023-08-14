@@ -11,9 +11,8 @@
 > - Application context: as part of a team project (2) to analyze and visualize data from the Iris Dataset database, you'll use Git and GitHub to manage and track changes to your code, collaborate with teammates and ensure the consistency of your project.
 
 <br>
-<div style="text-align: center;">
-  <img src="https://lptm.cyu.fr/medias/photo/cy-cergy-paris-universite-coul_1611572232688-png?ID_FICHE=11641" alt="Description de l'image" width="520" height="173">
-</div>
+</br>
+  <img src="https://lptm.cyu.fr/medias/photo/cy-cergy-paris-universite-coul_1611572232688-png?ID_FICHE=11641" alt="Logo Université" width="260" height="87">
 
 
 
