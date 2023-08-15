@@ -1,0 +1,72 @@
+# Charger la bibliothèque
+library(dplyr)
+
+# Chemin vers le fichier "iris.data"
+file_path <- "src/iris.data"
+
+# Noms des colonnes pour le jeu de données iris column_names <- c("sepal_length", "sepal_width", "petal_length", "petal_width", "class")
+
+# Charger le dataset
+data(iris)
+
+# Affichage des premières lignes (head) du jeux de données iris
+print(head(iris, 20))
+head(iris, 20)
+
+# Affichage des statistiques descriptives (summary)
+print(summary(iris))
+
+# Compter le nombre de valeurs manquantes par colonne
+missing_values <- sapply(iris, function(column) sum(is.na(column)))
+
+# Afficher le nombre de valeurs manquantes par colonne
+print(missing_values)
+
+
+# Group_by et comptage de la colonne choisie
+grouped_data <- iris %>%
+  group_by(Species, Petal.Length) %>%
+  count()
+
+# Affichage du group_by
+print(grouped_data)
+
+```
+
+
+```{r}
+analyze_iris_data <- function() {
+  # Charger la bibliothèque
+  library(dplyr)
+
+  # Charger le dataset
+  data(iris)
+  dataframe <- iris
+
+  # Affichage des premières lignes (head) du jeu de données iris
+  cat("Premières lignes du jeu de données iris :\n")
+  print(head(dataframe, 20))
+
+  # Affichage des statistiques descriptives (summary)
+  cat("\nStatistiques descriptives :\n")
+  print(summary(dataframe))
+
+  # Compter le nombre de valeurs manquantes par colonne
+  missing_values <- sapply(dataframe, function(column) sum(is.na(column)))
+
+  # Afficher le nombre de valeurs manquantes par colonne
+  cat("\nNombre de valeurs manquantes par colonne :\n")
+  print(missing_values)
+
+  # Group_by et comptage de la colonne choisie
+  grouped_data <- dataframe %>%
+    group_by(Species, Petal.Length) %>%
+    count()
+
+  # Affichage du group_by
+  cat("\nGroup_by de la colonne 'Species' et 'Petal.Length' :\n")
+  print(grouped_data)
+}
+
+# Appeler la fonction pour exécuter l'analyse
+analyze_iris_data()
