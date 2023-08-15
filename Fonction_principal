@@ -1,0 +1,45 @@
+analyze_iris_data <- function() {
+  # Charger la bibliothèque
+  library(dplyr)
+
+  # Charger le dataset
+  data(iris)
+  dataframe <- iris
+
+  # Affichage des premières lignes (head) du jeu de données iris
+  cat("Premières lignes du jeu de données iris :\n")
+  print(head(dataframe, 20))
+
+  # Affichage des statistiques descriptives (summary)
+  cat("\nStatistiques descriptives :\n")
+  print(summary(dataframe))
+
+  # Compter le nombre de valeurs manquantes par colonne
+  missing_values <- sapply(dataframe, function(column) sum(is.na(column)))
+
+  # Afficher le nombre de valeurs manquantes par colonne
+  cat("\nNombre de valeurs manquantes par colonne :\n")
+  print(missing_values)
+
+  # Group_by et comptage de la colonne choisie
+  grouped_data <- dataframe %>%
+    group_by(Species, Petal.Length) %>%
+    count()
+
+  # Affichage du group_by
+  cat("\nGroup_by de la colonne 'Species' et 'Petal.Length' :\n")
+  print(grouped_data)
+}
+
+# Appeler la fonction pour exécuter l'analyse
+analyze_iris_data()
+
+# Début de la fonction pour créer un graphique
+create_petal_length_histogram <- function(dataframe) {
+  p <- ggplot(dataframe, aes(x = Petal.Length, fill = Species)) +
+    geom_histogram(binwidth = 0.1, position = "identity", alpha = 0.7) +
+    labs(x = "Longueur des pétales", y = "Frequences", title = "Histogramme de la longueur des pétales par espèces") +
+    theme_minimal()
+  
+  return(p)
+}
