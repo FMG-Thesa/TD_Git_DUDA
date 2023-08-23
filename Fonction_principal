@@ -33,11 +33,3 @@ analyze_iris_data <- function() {
 
 # Appeler la fonction pour exécuter l'analyse
 analyze_iris_data()
-
-
-# Début de la fonction de filtrage du df
-filter_iris_by_condition <- function(dataframe) {
-  filter_condition <- "Petal.Length <= 4.35"
-  filtered_data <- filter(dataframe, !!rlang::parse_expr(filter_condition))
-  return(filtered_data)
-}
