@@ -33,3 +33,13 @@ analyze_iris_data <- function() {
 
 # Appeler la fonction pour exécuter l'analyse
 analyze_iris_data()
+
+# Début de la fonction pour créer un graphique
+create_petal_length_histogram <- function(dataframe) {
+  p <- ggplot(dataframe, aes(x = Petal.Length, fill = Species)) +
+    geom_histogram(binwidth = 0.1, position = "identity", alpha = 0.7) +
+    labs(x = "Longueur des pétales", y = "Frequences", title = "Histogramme de la longueur des pétales par espèces") +
+    theme_minimal()
+  
+  return(p)
+}
